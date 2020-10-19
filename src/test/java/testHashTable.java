@@ -37,22 +37,6 @@ public class testHashTable
         Assert.assertEquals(3,frequency);
     }
 
-    @Test
-    public void given_a_String_whenPassed_returnsWordFreq() {
-        String str="avoidable";
-        HashTable<String,Integer> hashtable=new HashTable<>();
-        String[] words=str.toLowerCase().split(" ");
-        for(String s:words){
-            Integer value = hashtable.get(s);
-            if(value==null)
-                value=1;
-            else
-                value++;
-            hashtable.add(s,value);
-        }
-        hashtable.remove("avoidable");
-        Integer frequency = hashtable.get("avoidable");
-        Assert.assertEquals(null,frequency);
-    }
+   
 
 }
