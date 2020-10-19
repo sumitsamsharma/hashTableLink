@@ -30,7 +30,27 @@ public class LinkedList<K,V> {
         return null;
     }
 
-    
+    public void delete(K key) {
+        nodeMap temp = head;
+        while (temp != null) {
+            if(head.getKey().equals(key)){
+                if(head.getNext()==null){
+                    head=null;
+                    tail=null;
+                    break;
+                }
+                else{
+                    head=head.getNext();
+                    break;
+                }
+            }
+            if (temp.getNext().getKey().equals(key)) {
+                temp.setNext(temp.getNext().getNext());
+            }
+            tail = temp;
+            temp = temp.getNext();
+        }
+    }
 
     public void printLinkedList() {
         nodeMap node = head;
