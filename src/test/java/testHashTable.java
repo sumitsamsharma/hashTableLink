@@ -19,4 +19,22 @@ public class testHashTable
         int freq = hMap.get("to");
         Assert.assertEquals(2,freq);
     }
+
+    @Test
+    public void givenString_whenParsed_shouldReturnParanoidFrequency() {
+        String str="Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+        HashTable<String,Integer> hashtable=new HashTable<>();
+        String[] words=str.toLowerCase().split(" ");
+        for(String sentence:words){
+            Integer value = hashtable.get(sentence);
+            if(value==null)
+                value=1;
+            else
+                value++;
+            hashtable.add(sentence,value);
+        }
+        int frequency = hashtable.get("paranoid");
+        Assert.assertEquals(3,frequency);
+    }
+
 }
